@@ -57,7 +57,7 @@
       const message = `Confirmação de presença - Casamento Cibele & Vinicius%0A%0ANome: ${name}%0AResposta: ${answer}`;
       const url = `https://wa.me/${phone}?text=${message}`;
 
-      window.open(url, '_blank');
+      window.location.href = url;
 
       document.getElementById('result').innerText = `${name}, obrigado por responder! Sua confirmação foi enviada.`;
     }
