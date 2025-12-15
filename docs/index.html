@@ -47,17 +47,26 @@
     }
 
     function confirm(answer) {
-      const name = document.getElementById('name').value;
-      if (!name) {
-        alert('Digite seu nome');
-        return;
-      }
+  const name = document.getElementById('name').value;
+  if (!name) {
+    alert('Digite seu nome');
+    return;
+  }
 
-      const phone = '5587999037785'; // TROQUE PELO SEU NÚMERO COM DDI E DDD
-      const message = `Confirmação de presença - Casamento Cibele & Vinicius%0A%0ANome: ${name}%0AResposta: ${answer}`;
-      const url = `https://wa.me/${phone}?text=${message}`;
+  const phone = '5587999037785'; // SEU NÚMERO
+  const text =
+    'Confirmação de presença - Casamento Cibele & Vinicius\n\n' +
+    'Nome: ' + name + '\n' +
+    'Resposta: ' + answer;
 
-      window.location.href = url;
+  const url =
+    'https://api.whatsapp.com/send?phone=' +
+    phone +
+    '&text=' +
+    encodeURIComponent(text);
+
+  window.location.href = url;
+}
 
       document.getElementById('result').innerText = `${name}, obrigado por responder! Sua confirmação foi enviada.`;
     }
